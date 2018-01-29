@@ -10,7 +10,7 @@ public class Node <T>{
     
     private int neighborCount;
     private T data;
-    private Node<T>[] neighbors;
+    private Node[] neighbors;
     private float[] edgeWeights;
 
     /**
@@ -30,7 +30,7 @@ public class Node <T>{
      */
     Node(T data, int nCapacity){
         this.data = data;
-        neighbors = (Node<T>[]) new Object[nCapacity];
+        neighbors = new Node[nCapacity];
         edgeWeights = new float[nCapacity];
     }
 
@@ -94,7 +94,7 @@ public class Node <T>{
      * Rescales the arrays to provide storage for more neighbors.
      */
     private void rescale(){
-        Node<T>[] newNeighbors = (Node<T>[]) new Object[(int)(neighbors.length * SCALE_FACTOR)];
+        Node[] newNeighbors = new Node[(int)(neighbors.length * SCALE_FACTOR)];
         float[] newEdgeWeights = new float[(int)(edgeWeights.length * SCALE_FACTOR)];
 
         for (int i = 0; i < neighborCount; i++) {

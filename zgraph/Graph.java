@@ -5,10 +5,10 @@ package zgraph;
  *
  * @param <T> The type of data the graph is storing on the vertex.
  */
-public abstract class Graph <T>{
-    private static final float SCALE_FACTOR = 5f/3f;
+public abstract class Graph <T> {
+    private static final float SCALE_FACTOR = 7f/3f;
     private int nodeCount;
-    private Node<T>[] vertices;
+    private Node[] nodes;
 
     /**
      * Creates a new instance of the graph with a starting capacity of elements.
@@ -16,7 +16,8 @@ public abstract class Graph <T>{
      * @param initialCapacity Starting capacity of the node array.
      */
     protected Graph(int initialCapacity){
-        vertices = (Node<T>[]) new Object[initialCapacity];
+        nodes = new Node[initialCapacity];
+        nodeCount = 0;
     }
 
     /**
@@ -36,7 +37,7 @@ public abstract class Graph <T>{
      */
     public boolean isInGraph(Node<T> node){
         for (int i = 0; i < nodeCount; i++) {
-            if(node == vertices[i]){
+            if(node == nodes[i]){
                 return true;
             }
         }
@@ -52,7 +53,7 @@ public abstract class Graph <T>{
      */
     public boolean isInGraph(T data){
         for (int i = 0; i < nodeCount; i++) {
-            if(data == vertices[i].getData()){
+            if(data == nodes[i].getData()){
                 return true;
             }
         }
@@ -68,13 +69,13 @@ public abstract class Graph <T>{
      */
     public Node<T> addNode(T data){
         //Rescale the array if we are out of room.
-        if(nodeCount == vertices.length){
+        if(nodeCount == nodes.length){
             rescale();
         }
 
         //Create the new node and put it in the array, returning the new element.
         Node<T> node = new Node<>(data);
-        vertices[nodeCount] = node;
+        nodes[nodeCount] = node;
         nodeCount++;
         return node;
     }
@@ -83,12 +84,12 @@ public abstract class Graph <T>{
      * Creates re-scaled arrays for the graph.
      */
     private void rescale(){
-        Node<T>[] newNodes= (Node<T>[]) new Object[(int)(vertices.length * SCALE_FACTOR)];
+        Node[] newNodes= new Node[(int)(nodes.length * SCALE_FACTOR)];
 
         for (int i = 0; i < nodeCount; i++) {
-            newNodes[i] = vertices[i];
+            newNodes[i] = nodes[i];
         }
 
-        vertices = newNodes;
+        nodes = newNodes;
     }
 }
