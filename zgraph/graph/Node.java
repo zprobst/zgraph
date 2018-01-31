@@ -1,4 +1,4 @@
-package zgraph;
+package zgraph.graph;
 
 /**
  * Creates a new instance of the node class that stored a vertex/node of a graph/tree.

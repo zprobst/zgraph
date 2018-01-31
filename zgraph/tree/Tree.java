@@ -1,6 +1,6 @@
 package zgraph.tree;
 
-import zgraph.UnweightedDirectedGraph;
+import zgraph.graph.UnweightedDirectedGraph;
 
 /**
  * A tree, in most cases is simply a unweighted, directed graph with no loops.

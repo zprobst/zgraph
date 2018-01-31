@@ -1,6 +1,6 @@
-package zgraph;
+package zgraph.graph;
 
-public abstract class UnweightedGraph<T> extends Graph<T>{
+public abstract class UnweightedGraph<T> extends Graph<T> {
     /**
      * Creates a new instance of the graph with a starting capacity of elements.
      *

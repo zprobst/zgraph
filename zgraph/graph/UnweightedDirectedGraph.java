@@ -1,4 +1,4 @@
-package zgraph;
+package zgraph.graph;
 
 /**
  * This provides an implementation of a graph that has:

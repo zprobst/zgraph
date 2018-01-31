@@ -1,4 +1,4 @@
-package zgraph;
+package zgraph.graph;
 
 /**
  * Provides the abstract notion of a graph.
@@ -15,7 +15,7 @@ public abstract class Graph <T> {
      *
      * @param initialCapacity Starting capacity of the node array.
      */
-    protected Graph(int initialCapacity){
+    Graph(int initialCapacity){
         nodes = new Node[initialCapacity];
         nodeCount = 0;
     }
@@ -91,5 +91,13 @@ public abstract class Graph <T> {
         }
 
         nodes = newNodes;
+    }
+
+    public void bfs(){
+
+    }
+
+    public void dfs(){
+
     }
 }
